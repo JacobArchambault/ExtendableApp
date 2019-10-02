@@ -14,6 +14,7 @@ namespace MyExtendableApp
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             Console.WriteLine("***** Welcome to MyTypeViewer *****");

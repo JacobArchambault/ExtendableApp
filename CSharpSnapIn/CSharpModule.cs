@@ -11,6 +11,6 @@ namespace CSharpSnapIn
     [CompanyInfo(CompanyName = "FooBar", CompanyUrl = "www.FooBar.com")]
     public class CSharpModule : IAppFunctionality
     {
-        void IAppFunctionality.Dolt() => Console.WriteLine("You have just used the C# snap-in");
+        void IAppFunctionality.Dolt() => Console.WriteLine("You have just used the C# snap-in!");
     }
 }
