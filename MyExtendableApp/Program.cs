@@ -23,11 +23,13 @@ namespace MyExtendableApp
                 Console.WriteLine("\nWould you like to load a snapin? [Y,N]");
                 // Get name of type.
                 string answer = Console.ReadLine();
+
                 // Does user want to quit?
                 if (!answer.Equals("Y", StringComparison.OrdinalIgnoreCase))
                 {
                     break;
                 }
+
                 // Try to display type.
                 try
                 {
