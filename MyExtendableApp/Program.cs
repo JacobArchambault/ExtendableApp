@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CommonSnappableTypes;
+using System;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Reflection;
 using System.Windows.Forms;
-using System.IO;
-
-using CommonSnappableTypes;
 
 namespace MyExtendableApp
 {
     class Program
     {
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("***** Welcome to MyTypeViewer *****");
             do
@@ -60,7 +55,7 @@ namespace MyExtendableApp
             if (dlg.FileName.Contains("CommonSnappableTypes"))
                 Console.WriteLine("CommonSnappableTypes has no snap-ins!");
             else if (!LoadExternalModule(dlg.FileName))
-                Console.WriteLine("nothing implements IAppFunctionality!");
+                Console.WriteLine("Nothing implements IAppFunctionality!");
         }
         private static bool LoadExternalModule(string path)
         {
@@ -80,7 +75,8 @@ namespace MyExtendableApp
 
             // Get all IAppFunctionality compatible classes in assembly.
             var theClassTypes = from t in theSnapInAsm.GetTypes()
-                                where t.IsClass && (t.GetInterface("IAppFunctionality") != null)
+                                where t.IsClass 
+                                && (t.GetInterface("IAppFunctionality") != null)
                                 select t;
 
             // Now create the object and call Dolt() method.
@@ -89,7 +85,7 @@ namespace MyExtendableApp
                 foundSnapIn = true;
                 // Use late binding to create the type.
                 IAppFunctionality itfApp = (IAppFunctionality)theSnapInAsm.CreateInstance(t.FullName, true);
-                itfApp?.Dolt();
+                itfApp?.DoIt();
                 //1stLoadedSnapIns.Items.Add(t.FullName);
                 // Show company info.
                 DisplayCompanyData(t);

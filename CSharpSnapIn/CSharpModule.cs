@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CommonSnappableTypes;
+﻿using CommonSnappableTypes;
+using System;
 
 namespace CSharpSnapIn
 {
     [CompanyInfo(CompanyName = "FooBar", CompanyUrl = "www.FooBar.com")]
     public class CSharpModule : IAppFunctionality
     {
-        void IAppFunctionality.Dolt() => Console.WriteLine("You have just used the C# snap-in!");
+        void IAppFunctionality.DoIt() => Console.WriteLine("You have just used the C# snap-in!");
     }
 }
